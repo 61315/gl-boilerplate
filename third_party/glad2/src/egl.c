@@ -85,6 +85,7 @@ int GLAD_EGL_EXT_surface_compression = 0;
 int GLAD_EGL_EXT_swap_buffers_with_damage = 0;
 int GLAD_EGL_EXT_sync_reuse = 0;
 int GLAD_EGL_EXT_yuv_surface = 0;
+int GLAD_EGL_IMG_context_priority = 0;
 int GLAD_EGL_KHR_cl_event = 0;
 int GLAD_EGL_KHR_cl_event2 = 0;
 int GLAD_EGL_KHR_client_get_all_proc_addresses = 0;
@@ -126,6 +127,7 @@ int GLAD_EGL_KHR_surfaceless_context = 0;
 int GLAD_EGL_KHR_swap_buffers_with_damage = 0;
 int GLAD_EGL_KHR_vg_parent_image = 0;
 int GLAD_EGL_KHR_wait_sync = 0;
+int GLAD_EGL_NV_context_priority_realtime = 0;
 
 
 
@@ -577,6 +579,7 @@ static int glad_egl_find_extensions_egl(EGLDisplay display) {
     GLAD_EGL_EXT_swap_buffers_with_damage = glad_egl_has_extension(extensions, "EGL_EXT_swap_buffers_with_damage");
     GLAD_EGL_EXT_sync_reuse = glad_egl_has_extension(extensions, "EGL_EXT_sync_reuse");
     GLAD_EGL_EXT_yuv_surface = glad_egl_has_extension(extensions, "EGL_EXT_yuv_surface");
+    GLAD_EGL_IMG_context_priority = glad_egl_has_extension(extensions, "EGL_IMG_context_priority");
     GLAD_EGL_KHR_cl_event = glad_egl_has_extension(extensions, "EGL_KHR_cl_event");
     GLAD_EGL_KHR_cl_event2 = glad_egl_has_extension(extensions, "EGL_KHR_cl_event2");
     GLAD_EGL_KHR_client_get_all_proc_addresses = glad_egl_has_extension(extensions, "EGL_KHR_client_get_all_proc_addresses");
@@ -618,6 +621,7 @@ static int glad_egl_find_extensions_egl(EGLDisplay display) {
     GLAD_EGL_KHR_swap_buffers_with_damage = glad_egl_has_extension(extensions, "EGL_KHR_swap_buffers_with_damage");
     GLAD_EGL_KHR_vg_parent_image = glad_egl_has_extension(extensions, "EGL_KHR_vg_parent_image");
     GLAD_EGL_KHR_wait_sync = glad_egl_has_extension(extensions, "EGL_KHR_wait_sync");
+    GLAD_EGL_NV_context_priority_realtime = glad_egl_has_extension(extensions, "EGL_NV_context_priority_realtime");
 
     return 1;
 }
