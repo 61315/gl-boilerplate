@@ -17,3 +17,5 @@ _bazel_*/
 compile_commands.json
 .cache
 .DS_Store
+
+temp/
