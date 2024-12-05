@@ -1,5 +1,5 @@
 ##
-#  glad + glfw demos
+#  explicitly uses egl but with angle
 ##
 cpp_file_names = glob(["*.cpp"])
 
@@ -7,13 +7,8 @@ cpp_file_names = glob(["*.cpp"])
     cc_binary(
         name = cpp_file_name.replace(".cpp", ""),
         srcs = [cpp_file_name],
-        copts = [
-        ],
-        data = [
-            # "@com_gl_boilerplate//:resources",
-        ],
-        includes = [
-        ],
+        copts = [],
+        includes = [],
         linkopts = select({
             "@platforms//os:macos": [
                 "-framework",
@@ -30,9 +25,9 @@ cpp_file_names = glob(["*.cpp"])
             "//conditions:default": [],
         }),
         deps = [
-            "//third_party/glad-460-320es", # with compatibility profile
-            # "//third_party/glad-330-300es", # with core profile
-            "@glfw",
+            "//third_party/angle", # this line is the only change
+            "//third_party/glad2",
+            "@glfw2",
             "@glm",
         ],
     )

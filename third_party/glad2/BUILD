@@ -13,7 +13,7 @@ cc_library(
         "include/glad/gl.h",
         "include/glad/gles2.h",
         "include/EGL/eglplatform.h",
-        # "include/EGL/egl.h", # TODO: this should be provided by ANGLE, not glad2
+        "include/EGL/egl.h", # TODO: this should be provided by ANGLE, not glad2
         "include/KHR/khrplatform.h",
     ],
     includes = ["include"],
