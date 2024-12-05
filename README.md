@@ -4,7 +4,7 @@
 
 | GL Version  | Windows | macOS    | Linux      |
 | ----------- | ------- | -------- | ---------- |
-| Legacy      | ✅      | ❌\*     | ✅         |
+| Legacy      | ✅      | ⚠️\*     | ✅         |
 | GL 3.3 Core | ✅      | ✅\*\*   | ✅         |
 | GL 4.1 Core | ✅      | ✅       | ✅         |
 | GL 4.6 Core | ✅      | ❌\*\*\* | ⚠️\*\*\*\* |
@@ -12,7 +12,7 @@
 | GLES 3.0    | ⚠️†     | ❌       | ⚠️‡        |
 
 ```
-* Legacy OpenGL not supported on modern macOS (10.14+)
+* Legacy OpenGL not supported on modern macOS (10.14+). GLAD with compatibility profile is required
 ** Requires forward compatible context
 *** macOS only supports up to OpenGL 4.1
 **** Requires recent GPU/driver with GL 4.6 support
@@ -24,7 +24,7 @@
 
 | GL Version  | Windows | macOS    | Linux      |
 | ----------- | ------- | -------- | ---------- |
-| Legacy      | ✅      | ❌\*     | ✅         |
+| Legacy      | ✅      | ⚠️\*     | ✅         |
 | GL 3.3 Core | ✅      | ✅\*\*   | ✅         |
 | GL 4.1 Core | ✅      | ✅       | ✅         |
 | GL 4.6 Core | ✅      | ❌\*\*\* | ⚠️\*\*\*\* |
@@ -32,7 +32,7 @@
 | GLES 3.0    | ⚠️†     | ❌       | ⚠️‡        |
 
 ```
-* Legacy OpenGL not supported on modern macOS (10.14+)
+* Legacy OpenGL not supported on modern macOS (10.14+). GLAD with compatibility profile is required
 ** Requires forward compatible context
 *** macOS only supports up to OpenGL 4.1
 **** Requires recent GPU/driver with GL 4.6 support
@@ -63,7 +63,8 @@ Failed to create GLFW window
 
 On macOS:
 ```
-TODO:
+GLFW Error 65542: EGL: Library not found
+Failed to create GLFW window
 ```
 
 On Linux (wsl):
@@ -80,9 +81,55 @@ Max Viewport Dimensions: 16384x16384
 GLAD GLES version: 3.1
 ```
 
-## GLAD2 + ANGLE (EGL)
+## GLFW + GLAD2 + ANGLE (EGL)
+
+| GL Version  | Windows | macOS    | Linux      |
+| ----------- | ------- | -------- | ---------- |
+| GLES 2.0    |         | ✅        |            |
+| GLES 3.0    |         | ✅        |            |
+
+### glfw_glad2_angle_egl_200es.cpp
+
+On Windows:
+```
+```
+
+On macOS (2018 Mac mini):
+```
+EGL Version: 1.5
+EGL Vendor: Google Inc. (Intel Inc.)
+EGL Version: 1.5 (ANGLE 2.1.23876 git hash: fffbc739779a)
+EGL Client APIs: OpenGL_ES
+GL Vendor: Google Inc. (Intel Inc.)
+GL Renderer: ANGLE (Intel Inc., Intel(R) UHD Graphics 630, OpenGL 4.1 INTEL-22.5.10)
+GL Version: OpenGL ES 3.0.0 (ANGLE 2.1.23876 git hash: fffbc739779a)
+GLSL Version: OpenGL ES GLSL ES 3.00 (ANGLE 2.1.23876 git hash: fffbc739779a)
+Max Viewport Dimensions: 16384x16384
+GLAD GLES version: 3.0
+```
+
+On Linux:
+```
+```
+
+## GLAD2 + SwANGLE
+
+OpenGL ES on SwiftShader Vulkan
+
+From [SwiftShader](https://github.com/google/swiftshader) repo:
+
+SwiftShader is a high-performance CPU-based implementation of the Vulkan 1.3 graphics API. Its goal is to provide hardware independence for advanced 3D graphics.
+
+> NOTE: The [ANGLE](http://angleproject.org/) project can be used to achieve a layered implementation of OpenGL ES 3.1 (aka. "SwANGLE").
 
 | GL Version  | Windows | macOS    | Linux      |
 | ----------- | ------- | -------- | ---------- |
 | GLES 2.0    |         |          |            |
 | GLES 3.0    |         |          |            |
+| GLES 3.1    |         |          |            |
+
+## OpenCL (or OpenCL ES) on ANGLE
+
+| CL Version  | Windows | macOS    | Linux      |
+| ----------- | ------- | -------- | ---------- |
+| Legacy      |         |          |            |
